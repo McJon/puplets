@@ -105,6 +105,7 @@
 
           <h3>Variable Tags</h3>
           {%- comment -%}
+            - https://help.shopify.com/en/themes/liquid/tags/variable-tags
             - gives us the ability to organise and section our code better by storing data from our objects into meaningful variables.
             - also handy for creating boolean flags
             - assign
@@ -112,6 +113,23 @@
             - increment/decrement
           {%- endcomment -%}
           {% assign green = '#BADA55' %}
+
+          <h3>Theme Tags</h3>
+          {%- comment -%}
+            - Other functions that assist in theme development
+            - https://help.shopify.com/en/themes/liquid/tags/theme-tags
+            - comment
+            - form
+            - section
+            - render/include
+            - liquid/echo
+          {%- endcomment -%}
+
+          {% paginate collections.winter-blankets.products by 2 %}
+            {% for product in collections.winter-blankets.products %}
+                {{ product.title }}
+            {% endfor %}
+          {% endpaginate %}
 
           <h2>Filters</h2>
         </div>
