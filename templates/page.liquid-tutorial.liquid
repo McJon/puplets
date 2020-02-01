@@ -8,6 +8,13 @@
       <hr class="hr--small">
     </header>
 
+    {%- comment -%}
+      - creates a bridge between an HTML file and the data in your store (page, product, collection content)
+      - it does this by allowing us to access variables from within a template
+      - your themes are 100 percent agnostic and can be applied to multiple stores without any knowledge of the stores content.
+      - we are not changing how Shopify works, we are merely pulling data from it and displaying it on our page
+    {%- endcomment -%}
+
     <div class="grid">
       <div class="grid__item large--four-fifths push--large--one-tenth">
         <div class="rte rte--nomargin rte--indented-images">
