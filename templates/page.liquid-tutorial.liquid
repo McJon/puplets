@@ -15,20 +15,20 @@
           <h2>Objects</h2>
           {%- comment -%}
           - also known as variables
-          - used to display dynamic content on a page.
+          - used to display dynamic content on a page
+          - can return a single value or a collection of values
           - https://help.shopify.com/en/themes/liquid/objects/page
           {%- endcomment -%}
-
           <ul>
             <li>{{ page.id }}</li>
           </ul>
 
           <h3>Global Objects</h3>
           {%- comment -%}
+            - available from wherever inside your theme.
             - https://help.shopify.com/en/themes/liquid/objects#global-objects
             - all_products['black-leather-bag'].title
           {%- endcomment -%}
-
           <ul>
             <li>{{ all_products['black-leather-bag'].title }}</li>
           </ul>
@@ -37,12 +37,18 @@
 
           <h2>Tags</h2>
           {%- comment -%}
-          - the logic
+          - how we can combine objects with useful tags to help our themes to do what we need them to do
+          - aka, the logic
           {%- endcomment -%}
 
           <h3>Control Flow Tags</h3>
+          {%- comment -%}
+          - if/else
+          - unless
+          - and/or
+          {%- endcomment -%}
           {% if page.title == 'Liquid Tutorial' %}
-            {{ page.description }}
+            {{ page.content }}
           {% endif %}
 
           <h3>Iteration Tags</h3>
