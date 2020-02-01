@@ -50,16 +50,20 @@
 
           <h3>Control Flow Tags</h3>
           {%- comment -%}
-          - if/else
-          - unless
-          - and/or
+            Determine whether blocks of code are executed or not depending on the situation.
+            - if/else
+            - unless
+            - and/or
           {%- endcomment -%}
           {% if page.title == 'Liquid Tutorial' %}
             {{ page.content }}
           {% endif %}
 
           <h3>Iteration Tags</h3>
-          {%- comment -%} https://help.shopify.com/en/themes/liquid/tags/iteration-tags {%- endcomment -%}
+          {%- comment -%}
+            Repeat blocks of code.
+            https://help.shopify.com/en/themes/liquid/tags/iteration-tags
+          {%- endcomment -%}
 
           {%- comment -%}
             - Iterating Numbers
@@ -100,6 +104,14 @@
           {% endfor %}
 
           <h3>Variable Tags</h3>
+          {%- comment -%}
+            - gives us the ability to organise and section our code better by storing data from our objects into meaningful variables.
+            - also handy for creating boolean flags
+            - assign
+            - capture
+            - increment/decrement
+          {%- endcomment -%}
+          {% assign green = '#BADA55' %}
 
           <h2>Filters</h2>
         </div>
