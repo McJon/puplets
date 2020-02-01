@@ -1,0 +1,97 @@
+<!-- /templates/page.liquid -->
+<div class="grid">
+  <div class="grid__item large--five-sixths push--large--one-twelfth">
+
+    <header class="section-header text-center">
+      <h1>{{ page.title }}</h1>
+      <p>Liquid uses a combination of tags, objects, and filters to load dynamic content.</p>
+      <hr class="hr--small">
+    </header>
+
+    <div class="grid">
+      <div class="grid__item large--four-fifths push--large--one-tenth">
+        <div class="rte rte--nomargin rte--indented-images">
+
+          <h2>Objects</h2>
+          {%- comment -%}
+          - also known as variables
+          - used to display dynamic content on a page.
+          - https://help.shopify.com/en/themes/liquid/objects/page
+          {%- endcomment -%}
+
+          <ul>
+            <li>{{ page.id }}</li>
+          </ul>
+
+          <h3>Global Objects</h3>
+          {%- comment -%}
+            - https://help.shopify.com/en/themes/liquid/objects#global-objects
+            - all_products['black-leather-bag'].title
+          {%- endcomment -%}
+
+          <ul>
+            <li>{{ all_products['black-leather-bag'].title }}</li>
+          </ul>
+
+          <hr class="hr--large">
+
+          <h2>Tags</h2>
+          {%- comment -%}
+          - the logic
+          {%- endcomment -%}
+
+          <h3>Control Flow Tags</h3>
+          {% if page.title == 'Liquid Tutorial' %}
+            {{ page.description }}
+          {% endif %}
+
+          <h3>Iteration Tags</h3>
+          {%- comment -%} https://help.shopify.com/en/themes/liquid/tags/iteration-tags {%- endcomment -%}
+
+          {%- comment -%}
+            - Iterating Numbers
+              - reversed
+              - range
+              - break
+              - continue
+          {%- endcomment -%}
+          {% assign array = '1,2,3,4,5' | split: ',' %}
+          {% for item in array %}
+            {{ item }}
+          {% endfor %}
+
+          <br>
+
+          {%- comment -%}
+          - Iterating Products in Collections
+            - for
+            - else
+            - tablerow
+          {%- endcomment -%}
+          {% for product in collections.winter-blankets.products %}
+            {{ product.title }}
+          {% endfor %}
+
+          <br>
+
+          {%- comment -%}
+          Cycle
+          - must be used within a for loop block.
+          - groups!
+          {%- endcomment -%}
+
+          {% for item in (1..4) %}
+            <div {% cycle 'style="text-align: left;"', 'style="text-align: right;"' %}>
+              {{ item }}
+            </div>
+          {% endfor %}
+
+          <h3>Variable Tags</h3>
+
+          <h2>Filters</h2>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
