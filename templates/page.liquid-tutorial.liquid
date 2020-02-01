@@ -93,8 +93,7 @@
 
           {%- comment -%}
           Cycle
-          - must be used within a for loop block.
-          - groups!
+          - must be used within a for loop block
           {%- endcomment -%}
 
           {% for item in (1..4) %}
@@ -125,13 +124,33 @@
             - liquid/echo
           {%- endcomment -%}
 
-          {% paginate collections.winter-blankets.products by 2 %}
-            {% for product in collections.winter-blankets.products %}
-                {{ product.title }}
-            {% endfor %}
-          {% endpaginate %}
-
           <h2>Filters</h2>
+          {%- comment -%}
+          Methods that modify the output of numbers, strings, variables and objects
+          - downcase/upcase
+          - img_url
+          {%- endcomment -%}
+          {% assign downcased_title = page.title | upcase %}
+
+          {% comment %} Single image {% endcomment %}
+          {% comment %} {{ all_products['foraker-canvas-coat'] | img_url }} {% endcomment %}
+
+          {% comment %}
+          Multiple images
+            - all_products['foraker-canvas-coat'].images
+            - variants
+          {% endcomment %}
+
+          {%- for image in all_products['foraker-canvas-coat'].images -%}
+            {{image.alt}}<br>
+          {%- endfor -%}
+
+          {% comment %}
+          - first/last
+          - size
+          - join
+          {% endcomment %}
+          {{ all_products['foraker-canvas-coat'].images | join: '<br>' }}
         </div>
       </div>
     </div>
