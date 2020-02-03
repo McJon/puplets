@@ -11,7 +11,7 @@
     {%- comment -%}
       - creates a bridge between an HTML file and the data in your store (page, product, collection content)
       - it does this by allowing us to access variables from within a template
-      - your themes are 100 percent agnostic and can be applied to multiple stores without any knowledge of the stores content.
+      - your themes are 100 percent agnostic and can be applied to multiple stores without any knowledge of the stores content
       - we are not changing how Shopify works, we are merely pulling data from it and displaying it on our page
     {%- endcomment -%}
 
@@ -54,10 +54,36 @@
             - if/else
             - unless
             - and/or
+            - contains
           {%- endcomment -%}
           {% if page.title == 'Liquid Tutorial' %}
             {{ page.content }}
           {% endif %}
+
+          {%- comment -%}
+          Truthy Falsy
+          - Data types that return true by default are called truthy. Data types that return false by default are called falsy.
+          - All values in Liquid are truthy except nil and false
+            - nil is returned when a Liquid object doesn't have anything to return.
+          {%- endcomment -%}
+
+          {%- comment -%}
+          - Empty strings are truthy
+            So always check if your strings are blank
+          {%- endcomment -%}
+
+          {% comment %}
+
+          {% unless settings.fp_heading == blank %}
+            <h1>{{ settings.fp_heading }}</h1>
+          {% endunless %}
+
+          {% endcomment %}
+
+          {%- comment -%}
+          An EmptyDrop is also truthy.
+            - An EmptyDrop object is returned if you try to access a deleted object (such as a page or post) by its handle.
+          {%- endcomment -%}
 
           <h3>Iteration Tags</h3>
           {%- comment -%}
@@ -72,8 +98,8 @@
               - break
               - continue
           {%- endcomment -%}
-          {% assign array = '1,2,3,4,5' | split: ',' %}
-          {% for item in array %}
+          {% assign nums = '1,2,3,4,5' | split: ',' %}
+          {% for item in nums %}
             {{ item }}
           {% endfor %}
 
@@ -107,9 +133,9 @@
             - https://help.shopify.com/en/themes/liquid/tags/variable-tags
             - gives us the ability to organise and section our code better by storing data from our objects into meaningful variables.
             - also handy for creating boolean flags
-            - assign
-            - capture
-            - increment/decrement
+              - assign
+              - capture
+              - increment/decrement
           {%- endcomment -%}
           {% assign green = '#BADA55' %}
 
@@ -117,12 +143,14 @@
           {%- comment -%}
             - Other functions that assist in theme development
             - https://help.shopify.com/en/themes/liquid/tags/theme-tags
-            - comment
-            - form
-            - section
-            - render/include
-            - liquid/echo
+              - comment
+              - form
+              - section
+              - render/include
+              - liquid/echo
           {%- endcomment -%}
+
+          <hr class="hr--large">
 
           <h2>Filters</h2>
           {%- comment -%}
@@ -146,11 +174,28 @@
           {%- endfor -%}
 
           {% comment %}
+          Array Filters
           - first/last
           - size
           - join
           {% endcomment %}
-          {{ all_products['foraker-canvas-coat'].images | join: '<br>' }}
+          {{ all_products['foraker-canvas-coat'].images | first }}
+
+          {%- comment -%}
+          - asset_url
+          - stylesheet_tag
+          - script_tag
+          - date
+          - pluralize
+          - replace
+          - handle
+          - money
+          - money_with_currency
+          - img_url
+          - link_to
+          {%- endcomment -%}
+
+          {% comment %} You get the idea: https://www.shopify.ca/partners/shopify-cheat-sheet {% endcomment %}
         </div>
       </div>
     </div>
