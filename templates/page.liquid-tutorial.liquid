@@ -4,7 +4,6 @@
 
     <header class="section-header text-center">
       <h1>{{ page.title }}</h1>
-      <p>Liquid uses a combination of tags, objects, and filters to load dynamic content.</p>
       <hr class="hr--small">
     </header>
 
@@ -27,10 +26,11 @@
           - By default, it is the object’s title in lowercase with any spaces and special characters replaced by hyphens (-).
           - Every object in Liquid (product, collection, blog, menu) has a handle.
           {% endcomment %}
-          {% comment %}  all_products['black-leather-bag'].title {% endcomment %}
+          {% comment %} {{ all_products['black-leather-bag'].title }} {% endcomment %}
 
           <h3>Types</h3>
           {% comment %}
+          6 types
           - Strings
           - Numbers
           - Booleans
@@ -42,23 +42,33 @@
           {% comment %}
           Nil
           - an empty value that is returned when Liquid code has no results
+           if fulfillment.tracking_numbers == nil
           {% endcomment %}
 
           {% comment %}
           Arrays
           - hold a list of variables of all types
+          - collections.winter-blankets.products
           {% endcomment %}
 
           {% comment %}
           EmptyDrop
-          - returned whenever you try to access a non-existent object
+          - is returned if you try to access a deleted object (such as a page or post) by its handle.
           {% endcomment %}
+          {% assign emptyPage = pages.some-handle-that-does-not-exist %}
+
+          <h3>Whitespace Control</h3>
+          {% comment %}
+          COME BACKT O THIS
+          you can include a hyphen in your tag syntax {{-, -}}, {%-, and -%} to strip whitespace from the left or right side of a rendered tag.  {% endcomment %}
 
           {% comment %}
-          Operators, Truthy Falsy and Whitespace Control explained below.
+          Operators and Truthy Falsy explained in further examples below.
           {% endcomment %}
 
           <hr class="hr--large">
+
+          <p class="text-center"><strong>Liquid uses a combination of tags, objects, and filters to load dynamic content.</strong></p>
 
           <h2>Objects</h2>
           {%- comment -%}
@@ -66,10 +76,10 @@
           - used to display dynamic content on a page
           - can return a single value or a collection of values
           - https://help.shopify.com/en/themes/liquid/objects/page
-          {%- endcomment -%}
           <ul>
             <li>{{ page.id }}</li>
           </ul>
+          {%- endcomment -%}
 
           <h3>Global Objects</h3>
           {%- comment -%}
@@ -77,17 +87,25 @@
             - https://help.shopify.com/en/themes/liquid/objects#global-objects
             - all_products['black-leather-bag'].title
           {%- endcomment -%}
-          <ul>
-            <li>{{ all_products['black-leather-bag'].title }}</li>
-          </ul>
 
           <hr class="hr--large">
 
           <h2>Tags</h2>
           {%- comment -%}
-          - how we can combine objects with useful tags to help our themes to do what we need them to do
+          - combine objects with useful tags to help our themes to do what we need them to do
           - aka, the logic
           {%- endcomment -%}
+
+          <h3>Variable Tags</h3>
+          {%- comment -%}
+            - https://help.shopify.com/en/themes/liquid/tags/variable-tags
+            - gives us the ability to organise and section our code better by storing data from our objects into meaningful variables.
+            - also handy for creating boolean flags
+              - assign
+              - capture
+              - increment/decrement
+          {%- endcomment -%}
+
 
           <h3>Control Flow Tags</h3>
           {%- comment -%}
@@ -97,13 +115,11 @@
             - and/or
             - contains
           {%- endcomment -%}
-          {% if page.title == 'Liquid Tutorial' %}
-            {{ page.content }}
-          {% endif %}
 
           {%- comment -%}
           Truthy Falsy
-          - Data types that return true by default are called truthy. Data types that return false by default are called falsy.
+          - Data types that return true by default are called truthy.
+          - Data types that return false by default are called falsy.
           - All values in Liquid are truthy except nil and false
             - nil is returned when a Liquid object doesn't have anything to return.
           {%- endcomment -%}
@@ -111,14 +127,11 @@
           {%- comment -%}
           - Empty strings are truthy
             So always check if your strings are blank
-          {%- endcomment -%}
 
-          {% comment %}
-
-          {% unless settings.fp_heading == blank %}
-            <h1>{{ settings.fp_heading }}</h1>
-          {% endunless %}
-
+           {% if page.content != '' %}
+            This is still true.
+              {{page.content}}
+            {% endif %}
           {% endcomment %}
 
           {%- comment -%}
@@ -135,50 +148,32 @@
           {%- comment -%}
             - Iterating Numbers
               - reversed
-              - range
+              - range (3..5)
               - break
               - continue
           {%- endcomment -%}
           {% assign nums = '1,2,3,4,5' | split: ',' %}
-          {% for item in nums %}
-            {{ item }}
-          {% endfor %}
-
-          <br>
 
           {%- comment -%}
           - Iterating Products in Collections
             - for
             - else
             - tablerow
-          {%- endcomment -%}
           {% for product in collections.winter-blankets.products %}
             {{ product.title }}
           {% endfor %}
-
-          <br>
+          {%- endcomment -%}
 
           {%- comment -%}
           Cycle
           - must be used within a for loop block
-          {%- endcomment -%}
 
           {% for item in (1..4) %}
             <div {% cycle 'style="text-align: left;"', 'style="text-align: right;"' %}>
               {{ item }}
             </div>
           {% endfor %}
-
-          <h3>Variable Tags</h3>
-          {%- comment -%}
-            - https://help.shopify.com/en/themes/liquid/tags/variable-tags
-            - gives us the ability to organise and section our code better by storing data from our objects into meaningful variables.
-            - also handy for creating boolean flags
-              - assign
-              - capture
-              - increment/decrement
           {%- endcomment -%}
-          {% assign green = '#BADA55' %}
 
           <h3>Theme Tags</h3>
           {%- comment -%}
@@ -204,13 +199,17 @@
             - downcase/upcase
             - append
           {% endcomment %}
-          {% assign downcased_title = page.title | downcase %}
+          {% comment %} {% assign my_title = page.title | downcase %} {% endcomment %}
 
           {% comment %} Multiple filters can be used on one output, and they are applied from left to right: {% endcomment %}
-          {{ 'hello, world!' | capitalize | remove: "world" }}
+          {% comment %} {{ 'hello, world!' | capitalize | remove: "world" }} {% endcomment %}
 
           <h3>URL Filters</h3>
-          {% comment %} URL filters output links to assets on Shopify’s Content Delivery Network (CDN). {% endcomment %}
+          {% comment %}
+          URL filters output links to assets on Shopify’s Content Delivery Network (CDN).
+          - https://help.shopify.com/en/themes/customization/troubleshooting/about-cdns
+          - https://en.wikipedia.org/wiki/Content_delivery_network#/media/File:NCDN_-_CDN.png
+          {% endcomment %}
 
           {% comment %}
            Single image
@@ -222,11 +221,11 @@
           Multiple images
             - all_products['foraker-canvas-coat'].images
             - variants
-          {% endcomment %}
 
           {%- for image in all_products['foraker-canvas-coat'].images -%}
-            {{image.alt}}<br>
+              <img src="{{ image | img_url }}" alt="{{ image.alt }}">
           {%- endfor -%}
+          {% endcomment %}
 
           <h3>Array Filters</h3>
           {% comment %}
@@ -234,15 +233,15 @@
             - first/last
             - size
             - join
+          {{ all_products['foraker-canvas-coat'].images |first }}
           {% endcomment %}
-          {{ all_products['foraker-canvas-coat'].images | first }}
 
           <h3>Math Filters</h3>
           {% comment %}
             - plus
             - minus
-          {% endcomment %}
           {{ all_products['foraker-canvas-coat'].price | plus: 15 }}
+          {% endcomment %}
 
           <h3>Money Filters</h3>
           {%- comment -%}
@@ -256,13 +255,23 @@
           {% comment %} date {% endcomment %}
 
           {% comment %} default {% endcomment %}
-          Dear {{ customer.name | default: "customer" }}
+          {% comment %} Dear {{ customer.name | default: "customer" }} {% endcomment %}
 
           {% comment %}
           - placeholder_svg_tag
           https://help.shopify.com/en/themes/liquid/filters/additional-filters#placeholder_svg_tag
-          {% endcomment %}
           {{ 'collection-1' | placeholder_svg_tag }}
+          {% endcomment %}
+
+          {% comment %}
+            {% for item in collections.winter-blankets.products %}
+            {% capture placeholder %}
+              {%- cycle 'product-1', 'product-2', 'product-3', 'product-4', 'product-5', 'product-6' -%}
+            {% endcapture %}
+
+              {{ placeholder | placeholder_svg_tag }}
+            {% endfor %}
+          {% endcomment %}
 
           {% comment %} You get the idea: https://www.shopify.ca/partners/shopify-cheat-sheet {% endcomment %}
         </div>
