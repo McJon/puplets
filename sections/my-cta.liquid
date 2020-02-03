@@ -6,9 +6,16 @@
   </a>
 </div>
 
+{% comment %}
+  Using: https://help.shopify.com/en/themes/development/sections#using-section-schema-tags
+  Types: https://help.shopify.com/en/themes/development/theme-editor/settings-schema#basic-input-setting-types
+{% endcomment %}
+
 {% schema %}
 {
   "name": "Call to action",
+  "class": "my-cta-class",
+  "tag": "section",
   "settings": [
     {
       "id": "text-box",
