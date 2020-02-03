@@ -155,12 +155,23 @@
           <h2>Filters</h2>
           {%- comment -%}
           Methods that modify the output of numbers, strings, variables and objects
-          - downcase/upcase
-          - img_url
           {%- endcomment -%}
-          {% assign downcased_title = page.title | upcase %}
 
-          {% comment %} Single image {% endcomment %}
+          <h3>String Filters</h3>
+          {% comment %}
+          String filters are used to manipulate outputs and variables of the string type.
+            - downcase/upcase
+            - append
+          {% endcomment %}
+          {% assign downcased_title = page.title | downcase %}
+
+          <h3>URL Filters</h3>
+          {% comment %} URL filters output links to assets on Shopify’s Content Delivery Network (CDN). {% endcomment %}
+
+          {% comment %}
+           Single image
+            - img_url
+          {% endcomment %}
           {% comment %} {{ all_products['foraker-canvas-coat'] | img_url }} {% endcomment %}
 
           {% comment %}
@@ -173,27 +184,41 @@
             {{image.alt}}<br>
           {%- endfor -%}
 
+          <h3>Array Filters</h3>
           {% comment %}
-          Array Filters
-          - first/last
-          - size
-          - join
+          - Array filters are used to modify the output of arrays.
+            - first/last
+            - size
+            - join
           {% endcomment %}
           {{ all_products['foraker-canvas-coat'].images | first }}
 
+          <h3>Math Filters</h3>
+          {% comment %}
+            - plus
+            - minus
+          {% endcomment %}
+          {{ all_products['foraker-canvas-coat'].price | plus: 15 }}
+
+          <h3>Money Filters</h3>
           {%- comment -%}
-          - asset_url
-          - stylesheet_tag
-          - script_tag
-          - date
-          - pluralize
-          - replace
-          - handle
           - money
           - money_with_currency
-          - img_url
-          - link_to
+          - money_without_currency
+          - money_without_trailing_zeros
           {%- endcomment -%}
+
+          <h3>General Filters</h3>
+          {% comment %} date {% endcomment %}
+
+          {% comment %} default {% endcomment %}
+          Dear {{ customer.name | default: "customer" }}
+
+          {% comment %}
+          - placeholder_svg_tag
+          https://help.shopify.com/en/themes/liquid/filters/additional-filters#placeholder_svg_tag
+          {% endcomment %}
+          {{ 'collection-1' | placeholder_svg_tag }}
 
           {% comment %} You get the idea: https://www.shopify.ca/partners/shopify-cheat-sheet {% endcomment %}
         </div>
