@@ -19,6 +19,47 @@
       <div class="grid__item large--four-fifths push--large--one-tenth">
         <div class="rte rte--nomargin rte--indented-images">
 
+          <h2>The Basics</h2>
+
+          <h3>Handles</h3>
+          {% comment %}
+          - The handle is used to access the attributes of a Liquid object.
+          - By default, it is the object’s title in lowercase with any spaces and special characters replaced by hyphens (-).
+          - Every object in Liquid (product, collection, blog, menu) has a handle.
+          {% endcomment %}
+          {% comment %}  all_products['black-leather-bag'].title {% endcomment %}
+
+          <h3>Types</h3>
+          {% comment %}
+          - Strings
+          - Numbers
+          - Booleans
+          - Nil
+          - Arrays
+          - EmptyDrop
+          {% endcomment %}
+
+          {% comment %}
+          Nil
+          - an empty value that is returned when Liquid code has no results
+          {% endcomment %}
+
+          {% comment %}
+          Arrays
+          - hold a list of variables of all types
+          {% endcomment %}
+
+          {% comment %}
+          EmptyDrop
+          - returned whenever you try to access a non-existent object
+          {% endcomment %}
+
+          {% comment %}
+          Operators, Truthy Falsy and Whitespace Control explained below.
+          {% endcomment %}
+
+          <hr class="hr--large">
+
           <h2>Objects</h2>
           {%- comment -%}
           - also known as variables
@@ -164,6 +205,9 @@
             - append
           {% endcomment %}
           {% assign downcased_title = page.title | downcase %}
+
+          {% comment %} Multiple filters can be used on one output, and they are applied from left to right: {% endcomment %}
+          {{ 'hello, world!' | capitalize | remove: "world" }}
 
           <h3>URL Filters</h3>
           {% comment %} URL filters output links to assets on Shopify’s Content Delivery Network (CDN). {% endcomment %}
