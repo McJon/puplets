@@ -7,11 +7,27 @@
       <hr class="hr--small">
     </header>
 
+    {% comment %}
+    Before we begin!
+
+    Settings.json - configure file associations for IDE
+        "files.associations": {
+                "*.liquid": "liquid",
+                "*.scss.liquid": "scss"
+        },
+
+    3 ways to get your theme ID
+    - my-theme-store.myshopify.com/admin/themes.xml
+    - my-theme-store.myshopify.com/admin/themes.json
+    - CMD: ./theme get --list -p=[your-password] -s=[you-store.myshopify.com]
+
+    {% endcomment %}
+
     {%- comment -%}
       - creates a bridge between an HTML file and the data in your store (page, product, collection content)
       - it does this by allowing us to access variables from within a template
-      - your themes are 100 percent agnostic and can be applied to multiple stores without any knowledge of the stores content
       - we are not changing how Shopify works, we are merely pulling data from it and displaying it on our page
+      - your themes are 100 percent agnostic and can be applied to multiple stores without any knowledge of the stores content
     {%- endcomment -%}
 
     <div class="grid">
@@ -59,7 +75,7 @@
 
           <h3>Whitespace Control</h3>
           {% comment %}
-          COME BACKT O THIS
+          COME BACK TO THIS
           you can include a hyphen in your tag syntax {{-, -}}, {%-, and -%} to strip whitespace from the left or right side of a rendered tag.  {% endcomment %}
 
           {% comment %}
