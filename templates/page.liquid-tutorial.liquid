@@ -1,4 +1,4 @@
-<!-- /templates/page.liquid -->
+<!-- /templates/page.section-tutorial.liquid -->
 <div class="grid">
   <div class="grid__item large--five-sixths push--large--one-twelfth">
 
@@ -17,10 +17,14 @@
                 "*.js.liquid": "js"
         },
 
-    3 ways to get your theme ID
-    - my-theme-store.myshopify.com/admin/themes.xml
-    - my-theme-store.myshopify.com/admin/themes.json
-    - CMD: ./theme get --list -p=[your-password] -s=[you-store.myshopify.com]
+    4 Ways to Get Your Theme ID
+    1. From the URL
+      - Go to your-store.myshopify.com/admin/themes select "Edit Code" from the "Actions" dropdown next to the theme
+      - The ID should be in the URL of this page
+      - e.g. your-store.myshopify.com/admin/themes/80643031095
+    2. your-store.myshopify.com/admin/themes.xml
+    3. your-store.myshopify.com/admin/themes.json
+    4. ./theme get --list -p=[your-password] -s=[you-store.myshopify.com]
 
     {% endcomment %}
 
@@ -45,9 +49,9 @@
           {% endcomment %}
           {% comment %} {{ all_products['black-leather-bag'].title }} {% endcomment %}
 
-          <h3>Types</h3>
+          <h3>Data Types</h3>
           {% comment %}
-          6 types
+          6 data types
           - Strings
           - Numbers
           - Booleans
@@ -76,8 +80,22 @@
 
           <h3>Whitespace Control</h3>
           {% comment %}
-          COME BACK TO THIS
-          you can include a hyphen in your tag syntax {{-, -}}, {%-, and -%} to strip whitespace from the left or right side of a rendered tag.  {% endcomment %}
+          you can include a hyphen in your tag syntax {{-, -}}, {%-, and -%} to strip whitespace from the left or right side of a rendered tag.
+
+
+          {{- '
+
+            Some string with no whitespace
+
+          ' -}}
+
+          {{ '
+
+            Some string with whitespace
+
+          ' }}
+
+          {% endcomment %}
 
           {% comment %}
           Operators and Truthy Falsy explained in further examples below.
@@ -282,9 +300,9 @@
 
           {% comment %}
             {% for item in collections.winter-blankets.products %}
-            {% capture placeholder %}
+            {%- capture placeholder -%}
               {%- cycle 'product-1', 'product-2', 'product-3', 'product-4', 'product-5', 'product-6' -%}
-            {% endcapture %}
+            {%- endcapture -%}
 
               {{ placeholder | placeholder_svg_tag }}
             {% endfor %}
