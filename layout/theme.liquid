@@ -99,7 +99,7 @@
     <main class="main-content" role="main">
       {% unless request.page_type == "index" %}
         <div class="wrapper">
-      {% endunless %}          
+      {% endunless %}
         {{ content_for_layout }}
       {% unless request.page_type == "index" %}
         </div>
@@ -154,5 +154,19 @@
     <li id="a11y-selection-message">{{ 'general.accessibility.selection_help' | t }}</li>
     <li id="a11y-slideshow-info">{{ 'home_page.slideshow.navigation_instructions' | t }}</li>
   </ul>
+
+  <script>
+    if(Storage !== undefined) {
+      {% if template contains 'collection' %}
+        sessionStorage.collection = "{{ collection.url }}";
+      {% endif %}
+
+      {% if template contains 'cart' %}
+        if( sessionStorage.collection ) {
+          document.querySelector('.js-continue-shopping').href = sessionStorage.collection;
+        }
+      {% endif %}
+    }
+  </script>
 </body>
 </html>

@@ -201,6 +201,10 @@
               {%- endcapture -%}
 
               <p class="rte"><em>{{ taxes_shipping_checkout }}</em></p>
+              <a href="/collections/all" title="Continue shopping" class="js-continue-shopping btn--secondary">
+                <span class="icon icon-arrow-left" aria-hidden="true"></span>
+                {{ 'cart.general.continue_shopping' | t }}
+              </a>
               <button type="submit" name="update" class="btn--secondary update-cart">{{ 'cart.general.update' | t }}</button>
               <button type="submit" name="checkout" class="btn cart__checkout">
                 {{ 'cart.general.checkout' | t }} <span class="icon icon-arrow-right" aria-hidden="true"></span>
