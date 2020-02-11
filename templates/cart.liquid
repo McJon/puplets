@@ -216,6 +216,13 @@
             </div>
         </div>
 
+        <div style="width:300px; clear:both;">
+          <p>
+            <label for="date">{{ 'cart.general.date_picker_label' }}</label>
+            <input id="date" type="text" name="attributes[date]" value="{{ cart.attributes.date }}" />
+            <span style="display:block" class="instructions">{{ 'cart.general.date_picker_instructions' }}</span>
+          </p>
+        </div>
       </form>
 
     {% else %}

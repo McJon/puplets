@@ -103,7 +103,9 @@
       "reduce_quantity": "Reduce item quantity by one",
       "increase_quantity": "Increase item quantity by one",
       "cookies_required": "Enable cookies to use the shopping cart",
-      "continue_shopping": "Continue Shopping"
+      "continue_shopping": "Continue Shopping,",
+      "date_picker_label": "Pick a delivery date:",
+      "date_picker_instructions": "We do not deliver during the weekend."
     },
     "label": {
       "quantity": "Quantity",
