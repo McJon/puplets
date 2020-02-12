@@ -1,0 +1,25 @@
+<div class="banner" style="background-image:url('{{ section.settings.image | img_url: 'large' }}')">
+    {%- if section.settings.heading != blank -%}
+      <h1 class="banner-heading hero__title">{{ section.settings.heading }}</h1>
+    {%- endif -%}
+</div>
+
+{% schema %}
+  {
+    "name": "Banner",
+    "class": "banner-wrapper",
+    "tag": "section",
+    "settings": [
+      {
+        "id": "image",
+        "type": "image_picker",
+        "label": "Image"
+      },
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading"
+      }
+    ]
+  }
+{% endschema %}
