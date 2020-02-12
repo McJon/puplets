@@ -89,6 +89,7 @@
       "title": "Your cart",
       "remove": "Remove",
       "note": "Special instructions for seller",
+      "gift_receipt": "Would you like to receive a gift receipt with your order?",
       "subtotal": "Subtotal",
       "taxes_and_shipping_at_checkout": "Taxes and shipping calculated at checkout",
       "taxes_and_shipping_policy_at_checkout_html": "Taxes and <a href=\"{{ link }}\">shipping<\/a> calculated at checkout",
@@ -103,7 +104,7 @@
       "reduce_quantity": "Reduce item quantity by one",
       "increase_quantity": "Increase item quantity by one",
       "cookies_required": "Enable cookies to use the shopping cart",
-      "continue_shopping": "Continue Shopping,",
+      "continue_shopping": "Continue Shopping",
       "date_picker_label": "Pick a delivery date:",
       "date_picker_instructions": "We do not deliver during the weekend."
     },
