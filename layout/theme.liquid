@@ -97,11 +97,11 @@
 
   <div id="PageContainer" class="page-container">
     <main class="main-content" role="main">
-      {% unless request.page_type == "index" %}
+      {% unless request.page_type == "index" or template contains 'how-it-works' %}
         <div class="wrapper">
-      {% endunless %}          
+      {% endunless %}
         {{ content_for_layout }}
-      {% unless request.page_type == "index" %}
+      {% unless request.page_type == "index" or template contains 'how-it-works' %}
         </div>
       {% endunless %}
     </main>
