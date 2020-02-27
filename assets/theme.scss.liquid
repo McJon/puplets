@@ -4378,3 +4378,23 @@ button.mfp-arrow {
   }
 }
 
+.banner-section {
+  text-align: center;
+
+  .banner-title {
+    color: #ffffff;
+  }
+}
+
+.banner-image {
+  background: center / cover no-repeat;
+  padding: 150px 20px;
+
+  @include at-query($min, $large) {
+    padding: 250px 20px;
+  }
+}
+
+.banner-subtitle {
+  color: #ffffff;
+}
