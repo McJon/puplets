@@ -96,12 +96,12 @@
   </div>
 
   <div id="PageContainer" class="page-container">
-    <main class="main-content" role="main">
-      {% unless request.page_type == "index" %}
+    <main class="{% unless page.template_suffix contains 'summer-promotion' %}main-content {% endunless %}" role="main">
+      {% unless request.page_type == "index" or  page.template_suffix contains 'summer-promotion' %}
         <div class="wrapper">
-      {% endunless %}          
+      {% endunless %}
         {{ content_for_layout }}
-      {% unless request.page_type == "index" %}
+      {% unless request.page_type == "index" or page.template_suffix contains 'summer-promotion' %}
         </div>
       {% endunless %}
     </main>
