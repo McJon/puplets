@@ -26,30 +26,30 @@
     "type_base_family": "helvetica_n4",
     "type_base_size": "16px",
     "type_base_italize_titles": false,
-    "cart_type": "drawer",
+    "cart_type": "page",
     "cart_notes_enable": true,
-    "share_image": "",
-    "social_facebook_link": "",
-    "social_twitter_link": "",
-    "social_pinterest_link": "",
-    "social_instagram_link": "",
-    "social_snapchat_link": "",
+    "share_image": "shopify:\/\/shop_images\/snug-pug-in-rug.jpg",
+    "social_facebook_link": "#",
+    "social_twitter_link": "#",
+    "social_pinterest_link": "#",
+    "social_instagram_link": "#",
+    "social_snapchat_link": "#",
     "social_google_plus_link": "",
     "social_tumblr_link": "",
-    "social_youtube_link": "",
+    "social_youtube_link": "#",
     "social_vimeo_link": "",
     "social_fancy_link": "",
     "share_facebook": true,
     "share_twitter": true,
     "share_pinterest": true,
-    "favicon": "",
-    "checkout_header_image": "",
-    "checkout_logo_image": "",
+    "favicon": "shopify:\/\/shop_images\/logo-white.png",
+    "checkout_header_image": "shopify:\/\/shop_images\/snug-pug-in-rug.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo-white.png",
     "checkout_logo_position": "left",
-    "checkout_logo_size": "small",
+    "checkout_logo_size": "large",
     "checkout_body_background_image": "",
     "checkout_body_background_color": "#ffffff",
-    "checkout_input_background_color_mode": "white",
+    "checkout_input_background_color_mode": "transparent",
     "checkout_sidebar_background_image": "",
     "checkout_sidebar_background_color": "#fff4f6",
     "checkout_heading_font": "Helvetica Neue",
@@ -75,15 +75,15 @@
               "image": "shopify:\/\/shop_images\/negative-space-pug-dog-wrapped-blanket-pixabay.jpg",
               "image_position": "center center",
               "image_overlay": true,
-              "image_overlay_opacity": 25,
+              "image_overlay_opacity": 65,
               "text_alignment": "center",
-              "slide_heading": "Hero Banner",
-              "slide_subheading": "An introductory",
+              "slide_heading": "Blankets for Pups",
+              "slide_subheading": "When you say Puplet, you've said it all.",
               "button_label": "Shop now",
-              "button_link": "",
+              "button_link": "shopify:\/\/collections",
               "slide_text_color": "#ffffff",
-              "slide_button_label_color": "#003b34",
-              "slide_button_background_color": "#84d1b2"
+              "slide_button_label_color": "#ffffff",
+              "slide_button_background_color": "#321863"
             }
           }
         },
@@ -100,7 +100,7 @@
         "type": "featured-products",
         "settings": {
           "title": "Featured collection",
-          "home_featured_products": "frontpage",
+          "home_featured_products": "blankets",
           "collection_products_grid": "collage"
         }
       },
@@ -108,13 +108,13 @@
         "type": "newsletter",
         "settings": {
           "heading": "Subscribe to our newsletter",
-          "subheading": "<p>A short sentence describing what someone will receive by subscribing<\/p>"
+          "subheading": "<p>You can unsubscribe at anytime!<\/p>"
         }
       },
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify:\/\/shop_images\/logo-white.png",
+          "logo": "shopify:\/\/shop_images\/logo_5019de72-3c70-4eed-a247-130da2fa85eb.png",
           "logo_max_width": 260,
           "header_color": "#000000",
           "transparent_header_enable": true,
@@ -152,7 +152,7 @@
       "1494860348200": {
         "type": "featured-row",
         "settings": {
-          "image": "",
+          "image": "shopify:\/\/shop_images\/dog-staying-warm.jpg",
           "layout": "right",
           "title": "Image with text",
           "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
@@ -163,7 +163,7 @@
       "1494894035034": {
         "type": "featured-row",
         "settings": {
-          "image": "",
+          "image": "shopify:\/\/shop_images\/blanket-pug-on-rocky-shore.jpg",
           "layout": "left",
           "title": "Image with text",
           "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
@@ -186,6 +186,7 @@
       },
       "1496078102297": {
         "type": "advanced-content",
+        "disabled": true,
         "blocks": {
           "1496078102297-0": {
             "type": "html",
@@ -203,6 +204,7 @@
       },
       "1496177901425": {
         "type": "advanced-content",
+        "disabled": true,
         "blocks": {
           "1496177901425-0": {
             "type": "html",
@@ -217,16 +219,30 @@
           "1496177901425-0"
         ],
         "settings": {}
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical"
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You may also like"
+        }
       }
     },
     "content_for_index": [
       "slideshow",
       "1496177901425",
       "featured-products",
-      "newsletter",
       "1496078102297",
       "1494860348200",
-      "1494894035034"
+      "1494894035034",
+      "newsletter"
     ]
   },
   "presets": {
