@@ -4378,11 +4378,17 @@ button.mfp-arrow {
   }
 }
 
+
+
 .banner-section {
   text-align: center;
 
   .banner-title {
     color: #ffffff;
+
+    @include at-query($min, $large) {
+      font-size: 80px;
+    }
   }
 }
 
@@ -4397,4 +4403,45 @@ button.mfp-arrow {
 
 .banner-subtitle {
   color: #ffffff;
+  text-transform: uppercase;
 }
+
+.promo-blocks-section {
+  @include at-query($min, $large) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    text-align: center;
+  }
+
+  .promo-block-title {
+    position: relative;
+    z-index: 1;
+    color: #ffffff;
+  }
+}
+
+.promo-block-subtitle {
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+}
+
+.promo-block-image  {
+ position: relative;
+ background: center / cover no-repeat;
+ width: 100%;
+ padding: 50px 20px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.65);
+  }
+}
+
+
