@@ -1,0 +1,49 @@
+{% render 'testimonial' %}
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "class": "testimonial-section",
+  "tag": "section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Testimonials"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Text",
+          "default": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author",
+          "default": "Author’s name"
+        },
+        {
+          "type": "text",
+          "id": "author_pos",
+          "label": "Author",
+          "default": "Author’s position"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

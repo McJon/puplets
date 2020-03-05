@@ -1,0 +1,33 @@
+{%- comment -%}
+  - Example From: https://shopify.github.io/liquid-code-examples/example/homepage-quotes
+  - Move Styles into an appropriate spot in your stylesheet (theme.scss.liquid)
+  - Apply this section to your landing page (page.summer-promotion.liquid)
+  - Update as you see fit.
+{%- endcomment -%}
+
+{% if section.settings.title != blank %}
+  <h2>{{ section.settings.title }}</h2>
+{% endif %}
+
+{%- if section.blocks.size > 0 -%}
+  {%- for block in section.blocks -%}
+    <blockquote>
+      {%- if block.settings.quote != blank -%}
+        <p>
+          {{ block.settings.quote }}
+        </p>
+      {%- endif -%}
+    </blockquote>
+
+    {%- if block.settings.author != blank -%}
+      <cite>
+        <a href="{{ block.settings.link }}">
+          {{ block.settings.author }}
+          {% if block.settings.author_pos != blank %}
+             {{ block.settings.author_pos }}
+          {% endif %}
+        </a>
+      </cite>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
