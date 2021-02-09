@@ -1,14 +1,14 @@
 {
   "current": {
-    "color_body_bg": "#ffffff",
-    "color_headings": "#321863",
-    "color_body_text": "#565656",
+    "color_body_bg": "rgba(0,0,0,0)",
+    "color_headings": "#8b2023",
+    "color_body_text": "#2d2926",
     "color_borders": "#5dd2b4",
     "color_button_text": "#ffffff",
     "color_primary": "#7737bd",
     "color_secondary": "#058677",
     "color_product_background": "#fff4f6",
-    "color_sale_tag": "#e80970",
+    "color_sale_tag": "#8b2023",
     "color_input": "#f6f6f6",
     "color_newsletter": "#fff4f6",
     "color_drawer_background": "#360f5f",
@@ -47,7 +47,7 @@
     "checkout_logo_image": "shopify:\/\/shop_images\/logo-white.png",
     "checkout_logo_position": "left",
     "checkout_logo_size": "large",
-    "checkout_body_background_image": "",
+    "checkout_body_background_image": "shopify:\/\/shop_images\/fresh-vegetables-arranged-on-chopping-board-flatlay.jpg",
     "checkout_body_background_color": "#ffffff",
     "checkout_input_background_color_mode": "transparent",
     "checkout_sidebar_background_image": "",
@@ -156,8 +156,7 @@
           "layout": "right",
           "title": "Image with text",
           "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-          "button_label": "",
-          "button_link": ""
+          "button_label": ""
         }
       },
       "1494894035034": {
@@ -167,8 +166,7 @@
           "layout": "left",
           "title": "Image with text",
           "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-          "button_label": "",
-          "button_link": ""
+          "button_label": ""
         }
       },
       "product-template": {
@@ -232,6 +230,101 @@
         "settings": {
           "show_product_recommendations": true,
           "heading": "You may also like"
+        }
+      },
+      "banner": {
+        "type": "banner",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/dog-wrapped-in-blanket-on-couch.jpg",
+          "subtitle": "Summer",
+          "main_title": "Promotion"
+        }
+      },
+      "promo-blocks": {
+        "type": "promo-blocks",
+        "blocks": {
+          "1583443695484": {
+            "type": "promo",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/cosy-dog-in-blanket.jpg",
+              "subtitle": "",
+              "main_title": "Summer"
+            }
+          },
+          "1583443708898": {
+            "type": "promo",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/snug-pug-in-rug.jpg",
+              "subtitle": "",
+              "main_title": "Promo"
+            }
+          }
+        },
+        "block_order": [
+          "1583443695484",
+          "1583443708898"
+        ],
+        "settings": {}
+      },
+      "testimonials": {
+        "type": "testimonials",
+        "blocks": {
+          "1583443644522": {
+            "type": "quote",
+            "settings": {
+              "quote": "<p>Add customer reviews and testimonials to showcase your store’s happy customers.<\/p>",
+              "author": "Author’s name",
+              "author_pos": "Author’s position",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1583443644522"
+        ],
+        "settings": {
+          "title": "Testimonials"
+        }
+      },
+      "featured-collection": {
+        "type": "featured-collection",
+        "settings": {
+          "collection_handle": "summer-collection"
+        }
+      },
+      "logo-list": {
+        "type": "logo-list",
+        "blocks": {
+          "1583443657499": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/nike.png",
+              "link": ""
+            }
+          },
+          "1583443669769": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/boss.png",
+              "link": ""
+            }
+          },
+          "1583443675344": {
+            "type": "logo_image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/adidas.png",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1583443657499",
+          "1583443669769",
+          "1583443675344"
+        ],
+        "settings": {
+          "title": "",
+          "logo_width": "160px"
         }
       }
     },
