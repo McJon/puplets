@@ -16,7 +16,7 @@
     "color_drawer_border": "#50297a",
     "color_drawer_button": "#7737bd",
     "color_drawer_button_text": "#ffffff",
-    "type_header_family": "avenir_next_n4",
+    "type_header_family": "helvetica_n4",
     "type_header_base_size": "38px",
     "type_header_border_thickness": "1px",
     "type_accent_family": "roboto_n7",
@@ -326,6 +326,16 @@
           "title": "",
           "logo_width": "160px"
         }
+      },
+      "16130542574f09b730": {
+        "type": "featured-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/various-types-of-uncooked-pasta-on-black-counter.jpg",
+          "layout": "left",
+          "title": "Image with text",
+          "text": "<p>Pair large text with an image to give focus to your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+          "button_label": ""
+        }
       }
     },
     "content_for_index": [
@@ -335,7 +345,8 @@
       "1496078102297",
       "1494860348200",
       "1494894035034",
-      "newsletter"
+      "newsletter",
+      "16130542574f09b730"
     ]
   },
   "presets": {
