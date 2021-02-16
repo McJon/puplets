@@ -3441,6 +3441,15 @@ theme.initCache = function() {
   };
 };
 
+theme.datePicker = function() {
+  $("#date").datepicker( {
+    minDate: +1,
+    maxDate: '+2M',
+    beforeShowDay: jQuery.datepicker.noWeekends,
+    showAnim: 'slide'
+  });
+};
+
 theme.init = function() {
   theme.initCache();
   theme.setBreakpoints();
@@ -3452,6 +3461,7 @@ theme.init = function() {
   theme.styleTextLinks();
   theme.searchModal();
   theme.productCardImageLoadingAnimation();
+  theme.datePicker();
 
   // Functions to run on load so image sizes can be calculated
   theme.cache.$window.on('load', theme.resizeLogo);

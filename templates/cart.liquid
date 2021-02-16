@@ -157,14 +157,18 @@
                 - Your theme settings can turn this on or off. Default is on.
                 - Make sure you have name="note" for the message to be submitted properly
             {%- endcomment -%}
-            {% if settings.cart_notes_enable %}
             <div class="grid__item large--seven-twelfths cart__note-container">
+
+            <input name="attributes[I want a gift receipt]" type="checkbox" id="CartGiftReceipt" checked="Yes">
+            <label for="CartGiftReceipt">{{ 'cart.general.gift_receipt' | t }}</label>
+
+            {% if settings.cart_notes_enable %}
               <div class="cart__note">
                 <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
                 <textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
               </div>
-            </div>
             {% endif %}
+            </div>
 
             <div class="grid__item large--five-twelfths text-center large--text-right{% if settings.cart_notes_enable %} cart__subtotal-container{% else %} push--large--seven-twelfths{% endif %}">
               {%- if cart.cart_level_discount_applications != blank -%}
@@ -201,6 +205,10 @@
               {%- endcapture -%}
 
               <p class="rte"><em>{{ taxes_shipping_checkout }}</em></p>
+              <a href="/collections/all" title="Continue shopping" class="js-continue-shopping btn--secondary">
+                <span class="icon icon-arrow-left" aria-hidden="true"></span>
+                {{ 'cart.general.continue_shopping' | t }}
+              </a>
               <button type="submit" name="update" class="btn--secondary update-cart">{{ 'cart.general.update' | t }}</button>
               <button type="submit" name="checkout" class="btn cart__checkout">
                 {{ 'cart.general.checkout' | t }} <span class="icon icon-arrow-right" aria-hidden="true"></span>
@@ -212,6 +220,13 @@
             </div>
         </div>
 
+        <div style="width:300px; clear:both;">
+          <p>
+            <label for="date">{{ 'cart.general.date_picker_label' | t }}</label>
+            <input id="date" type="text" name="attributes[date]" value="{{ cart.attributes.date }}" />
+            <span style="display:block" class="instructions">{{ 'cart.general.date_picker_instructions' | t }}</span>
+          </p>
+        </div>
       </form>
 
     {% else %}
